@@ -11,10 +11,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class TempClient2 {//synchronous client
 	
 	public static void main(String[] args) throws InterruptedException {
-		
+        
 		String topic        = "/home/Lyon/sido/sht30/value";
 	    String messageContent = LocalDateTime.now().toString()+" Message from my Lab's Paho Mqtt Client";
-	    int qos             = 1;
+	    //int qos             = 1;
 	    String brokerURI       = "tcp://localhost:1883";
 	    String clientId     = "sht30";
 	    MemoryPersistence persistence = new MemoryPersistence();

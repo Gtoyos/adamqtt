@@ -27,8 +27,8 @@ public class PersistentPublishingMqttClient {//synchronous client
 	    	////specify the Mqtt Client's connection options
 	    	MqttConnectOptions connectOptions = new MqttConnectOptions();
 	    	//clean session 
-	    	connectOptions.setCleanSession(false);
-			connectOptions.setWill("labs/paho-example-topic", "RIP".getBytes(), 1, true);
+	    	connectOptions.setCleanSession(true);
+			//connectOptions.setWill("labs/paho-example-topic", "RIP".getBytes(), 1, true);
 	    	//customise other connection options here...
 	    	//...
 	    	
@@ -36,15 +36,19 @@ public class PersistentPublishingMqttClient {//synchronous client
 	    	System.out.println("Mqtt Client: Connecting to Mqtt Broker running at: " + brokerURI);
 	    	mqttClient.connect(connectOptions);
             System.out.println("Mqtt Client: sucessfully Connected.");
-            
+            //Thread.sleep(10000);
             ////publish a message
             System.out.println("Mqtt Client: Publishing message: " + messageContent);
-            MqttMessage message = new MqttMessage(messageContent.getBytes());//instantiate the message including its content (payload)
-            message.setQos(1);//set the message's QoS
+			String x1= "a";
+			String x2 ="b";
+			String x3 = "c";
+			MqttMessage message = new MqttMessage((x1+x2+x3).getBytes());
+			System.out.println(message.getPayload().length);
+			message.setQos(0);//set the message's QoS
 			//message.setRetained(false);
-            mqttClient.publish(topic, message);//publish the message to a given topic
+            mqttClient.publish("AAA", message);//publish the message to a given topic
             System.out.println("Mqtt Client: successfully published the message.");
-            Thread.sleep(10000);
+            Thread.sleep(100000);
             ////disconnect the Mqtt Client
             mqttClient.disconnectForcibly(1);
             System.out.println("Mqtt Client: Disconnected.");

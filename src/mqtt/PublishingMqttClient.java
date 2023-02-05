@@ -58,13 +58,6 @@ public class PublishingMqttClient {//synchronous client
             System.out.println("Mqtt Exception cause: " + e.getCause());
             System.out.println("Mqtt Exception reason: " + e);
             e.printStackTrace();
-	    } catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-    
 	}
-    
-    
-
 }
