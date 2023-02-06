@@ -1,6 +1,7 @@
-# Experiment results. ADA Lab
+# Some experiment results. MQTT Lab
 
 ## Test 4.1:
+
 clean_session = true (for both publisher and subscriber)
 qos = 0 (for both publisher and subscriber)
 
@@ -12,6 +13,6 @@ Important: If the suscriber asks for QoS 1 but the publsher sends message with Q
 
 ### Retain FLAG
 
-The broker retains the messages. That is, publisher sends message. Broker saves it. Subscriber wildly appears, the broker send the sent messages to the subscriber.
+The broker retains the messages. That is, publisher sends a message. Broker saves it. Subscriber appears, the broker sends the message to the subscriber.
 
-En el experimento lo que sucede es que el cliente cada vez que se reconecta recive el mensaje!
+In the test, each time the client connects it receives the retained message!

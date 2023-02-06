@@ -12,13 +12,11 @@ public class BinaryClient {
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-        //byte[] buf = {0x10, 0x1A, 0x00, 0x04,0x4D,0x51,0x54,0x54,0x04,0x02,0x00, 0x3C, 0x00, 0x0E, 0x6D, 0x79, 0x43, 0x6C, 0x69, 0x65, 0x6E, 0x74, 0x49, 0x44, 0x5F, 0x50, 0x75, 0x62 };
-        
         //out.write(buf);
         //printArray(buf);
         System.out.println("CONNECT Message:");
-        printArray(createCONNECTpayload("PYTHON1"));
-        out.write(createCONNECTpayload("PYTHON1"));
+        printArray(createCONNECTpayload("Ada"));
+        out.write(createCONNECTpayload("Ada"));
         out.flush();
         //System.out.println(createMQTTConnectMessage("yo"));
         //out.writeInt(0);
@@ -32,16 +30,9 @@ public class BinaryClient {
         if(connack[2] == 0x00 && connack[3]== 0x00){ //Yay! We now try to publish sth
             //Send a PUBLISH
             System.out.println("PUBLISH Message:");
-            printArray(createPUBLISHpayload("AAA","BBB"));
-            out.write(createPUBLISHpayload("AAA","BBB"));
+            printArray(createPUBLISHpayload("Cantal","Camembert"));
+            out.write(createPUBLISHpayload("Cantal","Camembert"));
             out.flush();
-            //byte[] buf2 = new byte[10000];
-            //int length2 = in.read(buf2);
-            //byte[] connack2 = new byte[length2];
-            //for(int i=0;i<length2;i++)
-            //    connack2[i] = buf2[i];
-            //System.out.println("PUBACK Message:"); No messa
-            //printArray(connack2);
         }
         socket.close();
         

@@ -46,9 +46,9 @@ public class PersistentPublishingMqttClient {//synchronous client
 			System.out.println(message.getPayload().length);
 			message.setQos(0);//set the message's QoS
 			//message.setRetained(false);
-            mqttClient.publish("AAA", message);//publish the message to a given topic
+            mqttClient.publish("cheese", message);//publish the message to a given topic
             System.out.println("Mqtt Client: successfully published the message.");
-            Thread.sleep(100000);
+            //Thread.sleep(100000);
             ////disconnect the Mqtt Client
             mqttClient.disconnectForcibly(1);
             System.out.println("Mqtt Client: Disconnected.");
